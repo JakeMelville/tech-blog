@@ -13,11 +13,13 @@ router.post('/', withAuth, async (req, res) => {
       
       // TODO: SET USERID TO LOGGEDIN USERID
 
-      content: {...body},
+      title: req.body.title,
+      content: req.body.body,
       userId: req.session.userId
 
 
     });
+    console.log(newPost)
     res.json(newPost);
   } catch (err) {
     res.status(500).json(err);
@@ -30,7 +32,6 @@ router.put('/:id', withAuth, async (req, res) => {
       // TODO: SET ID TO ID PARAMETER INSIDE WHERE CLAUSE CONDITION FIELD
       where: {
         id: req.params.id,
-        userId: req.params.userId
       }
     });
 
@@ -45,12 +46,13 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log("DELETE /api/post/1");
   try {
     const [affectedRows] = Post.destroy({
       // TODO: SET ID TO ID PARAMETER INSIDE WHERE CLAUSE CONDITION FIELD
       where: {
         id: req.params.id,
-        userId: req.params.userId
+        
       }
     });
 
