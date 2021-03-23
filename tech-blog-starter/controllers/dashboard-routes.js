@@ -8,8 +8,8 @@ router.get('/', withAuth, async (req, res) => {
     const postData = await Post.findAll({
       where: {
         // TODO: SET USERID TO THE LOGGED-IN USER ID
-        id: req.params.id,
-        user_id: req.session.user_id,
+        // id: req.params.id,
+        userId: req.session.userId,
       },
     });
 
@@ -20,6 +20,7 @@ router.get('/', withAuth, async (req, res) => {
       posts,
     });
   } catch (err) {
+    console.log("ERRRRRRROR+++++++===========", err);
     res.redirect('login');
   }
 });
@@ -45,6 +46,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       res.status(404).end();
     }
   } catch (err) {
+    
     res.redirect('login');
   }
 });
