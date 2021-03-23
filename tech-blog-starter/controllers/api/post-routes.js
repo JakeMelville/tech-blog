@@ -3,7 +3,9 @@ const { Post } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
+  console.log("POST /api/post hit");
   const body = req.body;
+  console.log(body);
 
   try {
     const newPost = await Post.create({
@@ -11,7 +13,7 @@ router.post('/', withAuth, async (req, res) => {
       
       // TODO: SET USERID TO LOGGEDIN USERID
 
-      ...body,
+      content: {...body},
       userId: req.session.userId
 
 
