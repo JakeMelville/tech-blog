@@ -17,27 +17,27 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        userId: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
-        postId: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'post',
-                key: 'id'
-            }
-        }
+        // userId: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'User',
+        //         key: 'id'
+        //     }
+        // },
+        // postId: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'Post',
+        //         key: 'id'
+        //     }
+        // }
     },
     {
         sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'User'
+        // timestamps: false,
+        // freezeTableName: true,
+        // underscored: true,
+        // modelName: 'User'
     }
 )
 
