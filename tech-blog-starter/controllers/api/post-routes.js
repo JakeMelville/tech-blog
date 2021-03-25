@@ -10,11 +10,11 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       // TODO: POST BODY SENT IN REQUEST. HINT USING SPREAD
-      
+
       // TODO: SET USERID TO LOGGEDIN USERID
 
       title: req.body.title,
-      content: req.body.body,
+      content: body.body,
       userId: req.session.userId
 
 
@@ -52,7 +52,7 @@ router.delete('/:id', withAuth, async (req, res) => {
       // TODO: SET ID TO ID PARAMETER INSIDE WHERE CLAUSE CONDITION FIELD
       where: {
         id: req.params.id,
-        
+
       }
     });
 

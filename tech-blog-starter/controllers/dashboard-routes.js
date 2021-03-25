@@ -32,12 +32,13 @@ router.get('/new', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, async (req, res) => {
+  console.log("api/edit/1 hit===============================");
   try {
     const postData = await Post.findByPk(req.params.id);
 
     if (postData) {
       const post = postData.get({ plain: true });
-
+      console.log('post line 41', post);
       res.render('edit-post', {
         layout: 'dashboard',
         post,

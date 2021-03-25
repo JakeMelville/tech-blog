@@ -19,19 +19,24 @@ router.get('/', async (req, res) => {
 
 // get single post
 router.get('/post/:id', async (req, res) => {
+  console.log('/post/id hits===========================');
   try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: 'user',
-          attributes: ['title', 'content', 'userId']
-        },
-      ],
-    }
-    );
+    const postData = await Post.findByPk(req.params.id,
+      {
+        include: [User]
+        // {
+        //   model: 'User',
+        //   attributes: ['title', 'content', 'userId']
+        // }
+
+      }
+    )
+    // console.log('===================postdata: ', postData);
 
     if (postData) {
+
       const post = postData.get({ plain: true });
+      console.log(post);
 
       res.render('single-post', { post });
     } else {
@@ -39,6 +44,7 @@ router.get('/post/:id', async (req, res) => {
     }
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
 });
 
