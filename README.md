@@ -1,7 +1,7 @@
 # Tech Blog
 
 ## Description 
-This application was designedso that users can interact on our tech blog website. When arriving at the page the user must sign in. Once the user is signed in, they will have access to either create a new post, or comment on an existing post. The user will not be able to create a post or comment unless they are signed into the site. For new users, their is a sign up tab where the new user can create an account. 
+This application was designedso that users can interact on our tech blog website. When arriving at the page the user must sign in. Once the user is signed in, they will have access to either create a new post, or comment on an existing post. The user will not be able to create a post or comment unless they are signed into the site. For new users, their is a sign up tab where the new user can create an account. To run this application, type node server.js into the integrated terminal, and then visit http://localhost:3031/.
 
 ## Technology Used
 This application was designed using express, sequelize, handlebars, mySQL, and node.js. My folder structure follows the MVC paradigm. This application runs on the local host. 
